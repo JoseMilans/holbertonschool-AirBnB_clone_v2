@@ -4,6 +4,8 @@ from models.base_model import Base, BaseModel
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 import os
+from models.city import City
+
 storage_type = os.getenv('HBNB_TYPE_STORAGE')
 
 
