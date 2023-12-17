@@ -20,14 +20,14 @@ def teardown_appcontext(exception):
 def states_list():
     """Display a HTML page with a list of all State objects"""
     states = storage.all(State).values()
-    return render_template('9-states.html', obj_list=states)
+    return render_template('9-states.html', states=states, id=None)
 
 
 @app.route('/states/<id>')
 def state_cities(id):
     """Displays a HTML page with the cities of a certain State"""
     states = storage.all(State)
-    state = next((state for state in states.values() if state.id == id), None)
+    state = states.get(f"State.{id}", None)
     return render_template('9-states.html', state=state, id=id)
 
 
